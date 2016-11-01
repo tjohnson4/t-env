@@ -1,0 +1,8 @@
+name: "express"
+windows:
+    - name: "Develop"
+      layout: b98a,238x57,0,0[238x44,0,0,68,238x12,0,45{78x12,0,45,69,78x12,79,45,70,80x12,158,45,71}]
+      panes:
+        - vim
+        - grunt watch
+        - npm start
