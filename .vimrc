@@ -55,6 +55,18 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_use_ultisnips_completer = 1
 let g:ycm_auto_trigger = 1
 
+let g:javascript_conceal_function             = "ƒ"
+let g:javascript_conceal_null                 = "ø"
+let g:javascript_conceal_this                 = "@"
+let g:javascript_conceal_return               = "⇚"
+let g:javascript_conceal_undefined            = "¿"
+let g:javascript_conceal_NaN                  = "ℕ"
+let g:javascript_conceal_prototype            = "¶"
+let g:javascript_conceal_static               = "•"
+let g:javascript_conceal_super                = "Ω"
+let g:javascript_conceal_arrow_function       = "⇒"
+let g:javascript_conceal_noarg_arrow_function = "🞅"
+let g:javascript_conceal_underscore_arrow_function = "🞅"
 
 " Allow switching panes by holding down ctrl + hjkl direction key
 map <C-h> <C-w>h
@@ -135,6 +147,7 @@ NeoBundle 'rking/ag.vim'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'suan/vim-instant-markdown'
 NeoBundle 'mxw/vim-jsx'
+NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'nikvdp/ejs-syntax'
