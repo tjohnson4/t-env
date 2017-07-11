@@ -1,7 +1,5 @@
-export SYS_USER_NAME=tjohnson
-
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/$SYS_USER_NAME/.oh-my-zsh
+export ZSH=/Users/toddjohnson/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -53,19 +51,26 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git chucknorris frontend-search)
 
-# User configuration
-export PATH="$PATH:$HOME/WWW/tools/arcanist/bin:/Users/$SYS_USER_NAME/npm/bin:/opt/local/bin:/opt/local/sbin:/usr/local/heroku/bin:/Users/$SYS_USER_NAME/Documents/tools/s3cmd-1.5.2/s3cmd:/opt/local/bin:/opt/local/sbin:/usr/local/git/bin:/Users/$SYS_USER_NAME/Documents/gs/tools/asana:/bin:/Users/$SYS_USER_NAME/Library/Android/sdk/tools:/Users/$SYS_USER_NAME/Library/Android/sdk/platform-tools:/Users/$SYS_USER_NAME/Documents/sdks/apache-ant-1.9.5/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/Users/$SYS_USER_NAME/.vim/bundle/vim-snippets"
-export PYTHONPATH="$PYTHON_PATH:/Users/$SYS_USER_NAME/Documents/repos/gs"
-export PROD_PEM_US_WEST_1=/Users/$SYS_USER_NAME/.ssh/prod-us-west-1.pem
-export PROD_PEM_US_EAST_1=/Users/$SYS_USER_NAME/.ssh/prod-us-east-1.pem
-export PROD_PEM_US_WEST_1_FLINGO_TV=/Users/$SYS_USER_NAME/.ssh/us-west-1.flingo.tv
+export ANDROID_HOME=${HOME}/Library/Android/sdk
+export PATH="/Users/toddjohnson/WWW/tools/arcanist/bin:/Users/toddjohnson/npm/bin:/opt/local/bin:/opt/local/sbin:/usr/local/heroku/bin:/Users/toddjohnson/Documents/tools/s3cmd-1.5.2/s3cmd:/opt/local/bin:/opt/local/sbin:/usr/local/git/bin:/Users/toddjohnson/Documents/gs/tools/asana:/bin:/Users/toddjohnson/Documents/sdks/apache-ant-1.9.5/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/Users/toddjohnson/.vim/bundle/vim-snippets:/Users/toddjohnson/Library/Python/2.7/bin:$PATH"
+export PATH=${PATH}:${ANDROID_HOME}/tools
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+# export MANPATH="/usr/local/man:$MANPATH"
+export PYTHONPATH="$PYTHON_PATH:/Users/toddjohnson/Documents/repos/gs"
+export PROD_PEM_US_WEST_1=/Users/toddjohnson/.ssh/prod-us-west-1.pem
+export PROD_PEM_US_EAST_1=/Users/toddjohnson/.ssh/prod-us-east-1.pem
+export PROD_PEM_US_WEST_1_FLINGO_TV=/Users/toddjohnson/.ssh/us-west-1.flingo.tv
 export REPOPATH=~/Documents/repos/gs
+export ANDROID_HOME=~/Library/Android/sdk
 export DEV=todd.flingo.tv
-export NODE_PATH="$NODE_PATH:/Users/$SYS_USER_NAME/npm/lib/node_modules"
+export NODE_PATH="$NODE_PATH:/Users/toddjohnson/npm/lib/node_modules"
 
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 alias pyserv="python -m SimpleHTTPServer"
-
+alias h264_profile_json="ffprobe -v error -select_streams v:0 -show_entries stream=profile,level -of json"
+alias rn="react-native"
+alias tmkill="tmux kill-session -t"
+alias tma="tmux a -t"
 source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -93,5 +98,13 @@ alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias vimconfig="vim ~/.vimrc"
 
-export NVM_DIR="/Users/$SYS_USER_NAME/.nvm"
+export NVM_DIR="/Users/toddjohnson/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+autoload -U add-zsh-hook
+load-nvmrc() {
+    if [[ -f .nvmrc && -r .nvmrc ]]; then
+        nvm use
+    fi
+}
+add-zsh-hook chpwd load-nvmrc
